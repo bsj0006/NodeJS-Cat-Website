@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>Cat-lamity</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#button").click(function () {
+                console.log("Clicked");
+                $.getJSON("/images?count=12", function (result) {
+                    $.each(result, function (index, item) {
+                        $('#image').html('<img class="img-fluid" alt="Cat" src=' + item + ' />');
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+
+
+<body>
+<section class="jumbotron">
+    <h1 class="jumbotron-heading">Cat-lamity</h1>
+    <p class="lead text-muted">
+        Cat pictures!
+        <br>
+        We have some!</p>
+    <hr class="my-4">
+    <button id="button" type="button" class="btn btn-primary btn-lg">More Cat</button>
+</section>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <span id="image"></span>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
