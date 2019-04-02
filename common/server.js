@@ -1,5 +1,13 @@
 const http = require('http');
 
+/**
+ * Create a NodeJS http server
+ *
+ * @param options Server options
+ * @param express Express object
+ *
+ * @returns {Server}
+ */
 module.exports.createHttpServer = function (options, express) {
     let httpServer = http.createServer(express);
     httpServer.listen(options);

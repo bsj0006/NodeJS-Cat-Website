@@ -1,3 +1,10 @@
+/*
+* This file runs the service that handles requests from a browser
+*
+* This returns the main html page as well as communicates with the image server to get image urls
+*/
+
+
 let PORT = 80;
 let HOSTNAME = '127.0.0.1';
 let IMAGE_URI = 'http://127.0.0.1:3000';
@@ -18,14 +25,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 let args = process.argv.slice(2);
-if(args.length >= 1)
-{
+if (args.length >= 1) {
     HOSTNAME = args[0];
-    if(args.length >= 2)
-    {
+    if (args.length >= 2) {
         PORT = args[1];
-        if(args.length === 3)
-        {
+        if (args.length === 3) {
             IMAGE_URI = args[2];
         }
     }

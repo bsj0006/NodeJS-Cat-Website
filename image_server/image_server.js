@@ -1,3 +1,9 @@
+/*
+* This runs the image database service
+*
+* This server receives http requests for a certain number of images and returns URLs for images using
+* an advanced selection algorithm.
+*/
 let PORT = 3000;
 let HOSTNAME = '127.0.0.1';
 
@@ -36,6 +42,8 @@ app.get('/images', function (req, res) {
                 res.send(err);
             } else {
                 console.log("returning " + result);
+
+                //This takes the query result and returns it as json
                 res.json(result);
             }
         });

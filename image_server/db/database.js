@@ -30,7 +30,12 @@ module.exports.Database = function () {
         query_random_images(count, callback)
     };
 
-
+    /**
+     * Query images and return resulting URIs as an array into a callback
+     *
+     * @param count Number of images
+     * @param callback Callabck the reuslt is passed into.
+     */
     function query_random_images(count, callback) {
         let sql = `SELECT IMAGE_URI image_uri FROM ${IMAGE_TABLE_NAME} ORDER BY RANDOM() LIMIT ${count}`;
         db.all(sql, [], function (err, rows) {
