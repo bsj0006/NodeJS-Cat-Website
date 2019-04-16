@@ -13,7 +13,7 @@
         $(document).ready(function () {
             $("#button").click(function () {
                 console.log("Clicked");
-                $.getJSON("/images?count=12", function (result) {
+                $.getJSON("/images?count=1", function (result) {
                     $.each(result, function (index, item) {
                         $('#image').html('<img class="img-fluid" alt="Cat" src=' + item + ' />');
                     });
